@@ -2777,6 +2777,8 @@ type Query {
     status: USER_STATUS
   ): UsersConnection! @auth(roles: [ADMIN, MODERATOR])
 
+  site(id: ID!): Site @auth(roles: [ADMIN, MODERATOR])
+
   sites(first: Int = 10 @constraint(max: 50), after: Cursor): SitesConnection!
     @auth(roles: [ADMIN, MODERATOR])
 
@@ -5782,6 +5784,8 @@ type Mutation {
     input: DisableFeatureFlagInput!
   ): DisableFeatureFlagPayload! @auth(roles: [ADMIN])
   createSite(input: CreateSiteInput!): CreateSitePayload! @auth(roles: [ADMIN])
+
+  updateSite(input: UpdateSiteInput!): UpdateSitePayload! @auth(roles: [ADMIN])
 }
 
 ##################
@@ -5993,6 +5997,15 @@ input CreateSite {
   url: String!
   contactEmail: String!
   allowedDomains: [String!]!
+  communityID: String!
+}
+
+input UpdateSite {
+  name: String
+  url: String
+  contactEmail: String
+  allowedDomains: [String!]
+  communityID: String
 }
 
 input CreateSiteInput {
@@ -6001,6 +6014,17 @@ input CreateSiteInput {
 }
 
 type CreateSitePayload {
+  clientMutationId: String!
+  site: Site!
+}
+
+input UpdateSiteInput {
+  clientMutationId: String!
+  site: UpdateSite!
+  id: ID!
+}
+
+type UpdateSitePayload {
   clientMutationId: String!
   site: Site!
 }
