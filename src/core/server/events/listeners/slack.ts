@@ -13,9 +13,9 @@ import {
 import {
   CommentEnteredModerationQueueCoralEventPayload,
   CommentFeaturedCoralEventPayload,
-  CoralEventType,
 } from "../events";
 import { CoralEventListener, CoralEventPublisherFactory } from "../publisher";
+import { CoralEventType } from "../types";
 
 type SlackCoralEventListenerPayloads =
   | CommentFeaturedCoralEventPayload
