@@ -63,3 +63,4 @@ export {
   default as ValidationMessage,
   ValidationMessageProps,
 } from "./ValidationMessage";
+export { default as AppNotification } from "./AppNotification";
