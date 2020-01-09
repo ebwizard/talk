@@ -64,3 +64,4 @@ export {
   ValidationMessageProps,
 } from "./ValidationMessage";
 export { default as AppNotification } from "./AppNotification";
+export { default as PaginatedSelect } from "./PaginatedSelect";
